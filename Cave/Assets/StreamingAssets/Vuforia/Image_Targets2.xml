@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+    <Tracking>
+        <ImageTarget name="IKEA_CUBE.Left" size="35.000000 35.000000"/>
+        <ImageTarget name="IKEA_CUBE.Front" size="35.000000 35.035282"/>
+        <ImageTarget name="IKEA_CUBE.Back" size="35.000000 34.964752"/>
+        <ImageTarget name="IKEA_CUBE.Right" size="35.000000 35.000000"/>
+        <MultiTarget name="IKEA_CUBE">
+            <Part name="IKEA_CUBE.Left" translation="-17.5 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="IKEA_CUBE.Right" translation="17.5 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="IKEA_CUBE.Front" translation="0 0 17.5" rotation="AD: 1 0 0 0"/>
+            <Part name="IKEA_CUBE.Back" translation="0 0 -17.5" rotation="AD: 0 1 0 180"/>
+        </MultiTarget>
+    </Tracking>
+</QCARConfig>
