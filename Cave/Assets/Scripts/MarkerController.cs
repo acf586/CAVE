@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿//Das Skript hat die Aufgaben:
+//- zu erkennen an welcher Kubusseite sich der Palttform-Marker befindet
+//- die relative Position von Marker und Seite zu berechnen und daraus eine absolut Position für die 2D Plattform in der 2D Spielewelt zu bestimmen
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,38 +32,38 @@ public class MarkerController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {	
-
+		//für jede der 4 Kubusseiten wird eine individuelle Berechnung durchgeführt
 
         if (foundImage)
         {
             if (parentImageTarget.gameObject.name == "FinalCube.Front")
-            {
+            {	//relative Position von Marker und Kubusseite
 				float deltaX = -scaleFactor*(parentImageTarget.transform.position.x - this.transform.position.x);
 				float deltaY = -scaleFactor*(parentImageTarget.transform.position.z - this.transform.position.z);
-
+				//absolute Position der 2D Plattform in der 2D Spielewelt
 				platform.transform.position = new Vector3(cameraFront.transform.position.x + deltaX, cameraFront.transform.position.y + deltaY, platform.transform.position.z);
 				
             }
             if (parentImageTarget.gameObject.name == "FinalCube.Right")
-            {
+            {	//relative Position von Marker und Kubusseite
                 float deltaX = scaleFactor*(parentImageTarget.transform.position.y - this.transform.position.y);
 				float deltaY = -scaleFactor*(parentImageTarget.transform.position.z - this.transform.position.z);
-
+				//absolute Position der 2D Plattform in der 2D Spielewelt
 				platform.transform.position = new Vector3(cameraRight.transform.position.x + deltaX, cameraRight.transform.position.y + deltaY, platform.transform.position.z);
-                Debug.Log(platform.transform.position);
+                
             }
 			if (parentImageTarget.gameObject.name == "FinalCube.Back")
-            {
+            {	//relative Position von Marker und Kubusseite
 				float deltaX = scaleFactor*(parentImageTarget.transform.position.x - this.transform.position.x);
 				float deltaY = -scaleFactor*(parentImageTarget.transform.position.z - this.transform.position.z);
-			
+				//absolute Position der 2D Plattform in der 2D Spielewelt
 				platform.transform.position = new Vector3(cameraBack.transform.position.x + deltaX, cameraBack.transform.position.y + deltaY, platform.transform.position.z);
             }
 			if (parentImageTarget.gameObject.name == "FinalCube.Left")
-            {
+            {	//relative Position von Marker und Kubusseite
                 float deltaX = -scaleFactor*(parentImageTarget.transform.position.y - this.transform.position.y);
 				float deltaY = -scaleFactor*(parentImageTarget.transform.position.z - this.transform.position.z);
-
+				//absolute Position der 2D Plattform in der 2D Spielewelt
                 platform.transform.position = new Vector3(cameraLeft.transform.position.x + deltaX, cameraLeft.transform.position.y + deltaY, platform.transform.position.z);
             }
             
@@ -70,7 +73,7 @@ public class MarkerController : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
     {
-
+			//betritt der Plattform Collider einen Seiten-Collider dann wird das Elternobjekt bestimmt und daran erkannt auf welcher Seite sich dei Plattform befindet.
 			foundImage = true;
 
             Debug.Log("-----------------------------entered "+ other.gameObject.name);
